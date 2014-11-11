@@ -1,7 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Economica|Fira+Mono|Oxygen+Mono|Open+Sans|Open+Sans+Condensed:300);
 body {
   font-family: 'Open Sans';
-  background-color: #35383c; }
+  background-color: #35383c;
+  -webkit-font-smoothing: antialiased; }
 
 header {
   background: #35383c;
@@ -22,18 +23,28 @@ header .container {
   -ms-flex-align: center;
   align-items: center; }
   header .container .icon-button {
-    background-image: url("http://eursula.hicks.yoobee.net.nz/beauty_boutique/?attachment_id=41");
+    background-image: url("img/B.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
     height: 50px;
-    width: 50px; }
+    width: 50px;
+    -webkit-transform: scale(0.8); }
 
 /* fix bootstrap and flex not working well together */
 header .container:before,
 header .container:after {
   content: normal; }
 
-#icon-user {
-  color: black;
-  -webkit-font-smoothing: antialiased; }
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+#icon-user:before {
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-size: 2.5em; }
 
 .title {
   display: -webkit-box;
@@ -44,7 +55,9 @@ header .container:after {
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 500px;
+  /* Remove this once content in page */ }
   .title #name1 {
     font-family: 'Economica';
     font-size: 3em;
@@ -57,3 +70,42 @@ header .container:after {
     text-align: center;
     color: white;
     -webkit-font-smoothing: antialiased; }
+
+.menu {
+  font-size: 1.5em;
+  color: white;
+  font-family: 'Economica';
+  text-decoration: none;
+  list-style: none; }
+  .menu a {
+    color: white;
+    text-decoration: none;
+    list-style: none; }
+
+/*------------------------------------------- Footer -------------------------------------------*/
+footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background-color: white;
+  height: 50px;
+  margin-bottom: 0px; }
+  footer .footer-pic {
+    background-image: url("img/logo-gold.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    height: 40px;
+    width: 40px;
+    -webkit-transform: scale(0.8);
+    margin: 5px 10px 0 10px; }
+  footer .logo > p {
+    font-family: 'Economica';
+    color: #b2854c;
+    font-size: 3em;
+    margin-top: 0;
+    padding-bottom: 10px; }

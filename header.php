@@ -13,6 +13,6 @@
 		<div class="container">
 			<?php wp_nav_menu(); ?>
 			<div class="icon-button"></div>
-			<div data-icon="&#xe070;" style="font-size:2.5em; color:white" id="icon-user"></div>	
+			<div data-icon="&#xe070;"  id="icon-user"></div>	
 		</div>
 	</header>
