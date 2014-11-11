@@ -1,0 +1,69 @@
+@import url(http://fonts.googleapis.com/css?family=Economica|Fira+Mono|Oxygen+Mono|Open+Sans|Open+Sans+Condensed:300);
+
+$background-color: #35383C;
+$gold: #B2854C;
+
+body{
+	font-family: 'Open Sans';
+	background-color: $background-color;
+}
+
+
+
+header{
+	background: $background-color;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
+}
+
+header .container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.icon-button{
+		background-image: url("http://eursula.hicks.yoobee.net.nz/beauty_boutique/?attachment_id=41");
+		height: 50px;
+		width: 50px; 
+	}
+}
+
+/* fix bootstrap and flex not working well together */
+header .container:before,
+header .container:after{ content: normal; }
+
+
+
+#icon-user{
+	color: black;
+	-webkit-font-smoothing: antialiased;
+}
+
+.title{
+	display: flex;
+	flex-direction: column;
+
+	#name1{
+	font-family: 'Economica';
+	font-size: 3em;
+	color: $gold;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+	}
+
+	#name2{
+		font-family: 'Open Sans';
+		font-size: 2.5em;
+		text-align: center;
+		color: white;
+		-webkit-font-smoothing: antialiased;
+
+	}
+}
+
+
+
+	
+
+
+
