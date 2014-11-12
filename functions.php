@@ -16,15 +16,14 @@ if(!is_admin()){
 		true
 	);
 
-	# SlidesJS
-	wp_register_script('slidesjs', '//cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js', false, false, true);
-
 	# Theme script
 	wp_register_script('theme', $dir.'/js/script.js', 
 		['jquery', 'slidesjs'],
 		false, 
 		true
 	);
+
+	wp_register_script('nav', $dir.'/js/responsive-nav.js', ['jquery', 'nav'],false, true);
 
 	wp_enqueue_script('theme');
 
@@ -33,5 +32,7 @@ if(!is_admin()){
 
 	# Theme styles
 	wp_enqueue_style('theme', $dir.'/css/style.css');
+
+	wp_enqueue_style('theme', $dir.'/css/responsive-nav.css');
 
 }
