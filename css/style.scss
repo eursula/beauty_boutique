@@ -10,9 +10,12 @@ $gold: #B2854C;
 
 
 body{
+	margin: 0;
 	font-family: 'Open Sans';
 	background-color: $background-color;
 	-webkit-font-smoothing: antialiased;
+	margin-top: 1em;
+	transition: padding-top 0.4s ease;
 }
 
 
@@ -76,19 +79,64 @@ header .container:after{ content: normal; }
 
 }
 
-.menu{
+#topmenu{
 	font-size: 1.5em;
 	color: white;
 	font-family: 'Economica';
 	text-decoration: none;
 	list-style: none;
 
+	position: absolute;
+	top: -308px;
+	left: 0;
+	width: 100%;
+	transition: top 0.4s ease;
+	background: $gold;
+	text-align: center;
+
+
+	ul{
+		text-decoration: none;
+		list-style: none;
+		margin-left: 0;
+		padding-left: 0;
+
+		li{
+			border-bottom: 1px dotted white;
+			text-align: center;
+			line-height: 2;
+		}
+
+	}
+
+
+
 	a{
 		color: white;
 		text-decoration: none;
 		list-style: none;
+		text-align: center;
+
+
+	
 	}
 
+	p{
+		color: $background-color;
+	}
+
+	/*
+		State of the page with the activated topmenu
+	*/
+
+}
+
+body.show_topmenu{
+	padding-top: 308px;
+}
+
+body.show_topmenu #topmenu{
+	top: 0;
 }
 
 

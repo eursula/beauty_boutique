@@ -5,6 +5,8 @@ $dir = get_template_directory_uri();
 
 register_nav_menu('main', 'Main nav bar');
 
+//register_top_menu('top', 'Top nav bar');
+
 add_editor_style('editor-style.css');
 
 if(!is_admin()){
@@ -16,6 +18,7 @@ if(!is_admin()){
 		true
 	);
 
+
 	# Theme script
 	/*wp_register_script('nav', $dir.'/js/script.js', 
 		['jquery', 'slidesjs'],
@@ -23,23 +26,13 @@ if(!is_admin()){
 		true
 	);*/
 
-	# Nav script
-	
-
-	/*function nav_scripts() {
-		wp_enqueue_style( 'nav-theme', $dir.'css/menu_toexpand.css');
-		wp_enqueue_script( 'nav-script', $dir.'/js/classie.js', array(), '1.0.0', true );
-	}
-
-	add_action( 'wp_enqueue_scripts', 'nav_scripts' );*/
-
-	wp_register_script('nav-theme', $dir.'/js/classie.js',
-		false,
+	wp_register_script('toggle-class', $dir.'/js/script.js',
+		['jquery', 'toggleClass'],
 		false,
 		true
 	);
 
-	wp_enqueue_script('nav-theme');
+	wp_enqueue_script('toggle-class');
 
 	wp_register_script('theme', $dir.'/js/script.js',
 		false,
@@ -55,8 +48,5 @@ if(!is_admin()){
 
 	# Theme styles
 	wp_enqueue_style('theme', $dir.'/css/style.css');
-
-	wp_enqueue_style('nav-theme', $dir.'/css/menu_toexpand.css');
-
 
 }

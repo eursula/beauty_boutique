@@ -192,9 +192,13 @@ table {
 
 /*------------------------End Of Normalise --------*/
 body {
+  margin: 0;
   font-family: 'Open Sans';
   background-color: #35383c;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  margin-top: 1em;
+  -webkit-transition: padding-top 0.4s ease;
+  transition: padding-top 0.4s ease; }
 
 header {
   background: #35383c;
@@ -263,16 +267,45 @@ header .container:after {
     color: white;
     -webkit-font-smoothing: antialiased; }
 
-.menu {
+#topmenu {
   font-size: 1.5em;
   color: white;
   font-family: 'Economica';
   text-decoration: none;
-  list-style: none; }
-  .menu a {
+  list-style: none;
+  position: absolute;
+  top: -308px;
+  left: 0;
+  width: 100%;
+  -webkit-transition: top 0.4s ease;
+  transition: top 0.4s ease;
+  background: #b2854c;
+  text-align: center;
+  /*
+  	State of the page with the activated topmenu
+  */ }
+  #topmenu ul {
+    text-decoration: none;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0; }
+    #topmenu ul li {
+      border-bottom: 1px dotted white;
+      text-align: center;
+      line-height: 2; }
+  #topmenu a {
     color: white;
     text-decoration: none;
-    list-style: none; }
+    list-style: none;
+    text-align: center; }
+  #topmenu p {
+    color: #35383c; }
+
+body.show_topmenu {
+  padding-top: 308px; }
+
+body.show_topmenu #topmenu {
+  top: 0; }
 
 /*------------------------------------------- Footer -------------------------------------------*/
 footer {

@@ -12,8 +12,13 @@
 	
 	<header>
 		<div class="container">
-			<?php wp_nav_menu(); ?>
-			<div class="icon-button"></div>
+			<div id="topmenu">
+				<p>Welcome to Beauty Boutique</p>
+				<?php wp_nav_menu(); ?>
+			</div>
+			<a href="#">
+				<div class="icon-button" id="open"></div>
+			</a>
 			<div data-icon="&#xe070;"  id="icon-user"></div>	
 		</div>
 	</header>
