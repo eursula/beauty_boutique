@@ -24,6 +24,7 @@ header{
 	background: $background-color;
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
+	
 }
 
 header .container{
@@ -63,7 +64,8 @@ header .container:after{ content: normal; }
 
 #icon-hamburger:before{
 	color: $gold;
-	background-color: white;
+	//font-size: 2em;
+	//background-color: white;
 	@media screen and (min-width: 600px){
 		display: none;
 	} 
@@ -305,7 +307,10 @@ body.show_sidemenu .pusher{
 .title{
 	display: flex;
 	flex-direction: column;
-	height: 500px;  /* Remove this once content in page */
+	margin-top: 80px;
+	min-height: 500px;  /* Remove this once content in page */
+	text-align: center;
+
 
 	#name1{
 	font-family: 'Economica';
@@ -313,6 +318,8 @@ body.show_sidemenu .pusher{
 	color: $gold;
 	text-align: center;
 	-webkit-font-smoothing: antialiased;
+	letter-spacing: 10px;
+	margin-bottom: 0;
 	}
 
 	#name2{
@@ -321,10 +328,27 @@ body.show_sidemenu .pusher{
 		text-align: center;
 		color: white;
 		-webkit-font-smoothing: antialiased;
+		letter-spacing: 5px;
+		margin-top: 0;
 
 	}
 
 }
+
+.main-pic{
+	display: flex;
+	justify-content: center;
+	#x-pic{
+		background-image: url("img/logo-gold.png");
+		background-size: 100% 100%;
+		height: 40px;
+		width: 40px;
+		-webkit-transform: scale(0.8);
+
+	}
+}
+
+
 
 
 /*------------------------------------------- Footer -------------------------------------------*/
