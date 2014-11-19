@@ -472,6 +472,33 @@ body.show_sidemenu .pusher {
     width: 40px;
     -webkit-transform: scale(0.8); }
 
+.face-pic img {
+  margin-top: 60px;
+  width: 95vw;
+  padding: 5px;
+  background-color: white; }
+
+.promotion-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 10px;
+  border: 5px solid #b2854c; }
+  .promotion-box img {
+    width: 20px;
+    height: 20px; }
+  .promotion-box p {
+    color: #b2854c;
+    font-family: 'Open Sans';
+    font-size: 2.3em;
+    text-align: justify;
+    padding: 10px; }
+
 /*------------------------------------------- Footer -------------------------------------------*/
 footer {
   display: -webkit-box;
