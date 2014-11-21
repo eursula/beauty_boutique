@@ -22,11 +22,10 @@
 
 		<?php the_post(); ?>
 
-		<div class="treatments flex flex-j-center">
-			<a href="#">
+		<div class="treatments flex flex-j-center ">
+			<a href="#" id="image-w">
 				<div class="tr-name flex flex-j-center flex-a-center">
 					<h2><? the_title() ?></h2>
-					<!--<p><?=types_render_field('description', ['output' => 'raw'])?></p>-->
 				</div>
 				<div class="tr-image">
 					<?=types_render_field('treatment-image', ['url' => false]); ?>
