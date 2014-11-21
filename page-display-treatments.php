@@ -23,7 +23,7 @@
 		<?php the_post(); ?>
 
 		<div class="treatments flex flex-j-center ">
-			<a href="#" id="image-w">
+			<a href="<?=types_render_field('url', ['output' => 'raw'])?>" id="image-w">
 				<div class="tr-name flex flex-j-center flex-a-center">
 					<h2><? the_title() ?></h2>
 				</div>

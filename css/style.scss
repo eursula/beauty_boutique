@@ -5,7 +5,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 @import url(http://fonts.googleapis.com/css?family=Economica|Fira+Mono|Oxygen+Mono|Open+Sans|Open+Sans+Condensed:300);
 
-$background-color: #35383C;
+$background-color: #373737;
 $gold: #B2854C;
 
 
@@ -29,7 +29,6 @@ header{
 }
 
 header .container{
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -53,6 +52,8 @@ header .container:after{ content: normal; }
 
 .container{
 	margin: 0 auto;
+	padding-left: 0;
+	padding-right: 0;
 	display: flex;
 	max-width: 960px;
 
@@ -67,10 +68,16 @@ header .container:after{ content: normal; }
 
 #icon-hamburger:before{
 	color: $gold;
-	//font-size: 2em;
-	//background-color: white;
+	margin-left: 5px;
 	@media screen and (min-width: 600px){
 		display: none;
+	} 
+}
+
+#icon-user:before{
+	margin-right: 5px;
+	@media screen and (min-width: 600px){
+		//display: none;
 	} 
 }
 
@@ -92,22 +99,38 @@ header .container:after{ content: normal; }
 		}
 
 		li{
-			border: 1px solid white;
+			//background-color: $gold;
 			margin-bottom: 0;
 			width: 132px;
+
+			li:hover{
+				background-color: $gold;
+				
+			}
 		}
 
 		a{
-			color: white;
+			color: $gold;
 			font-size: 1.5em;
 			margin: 1em;
 			padding-bottom: 0;
+			font-weight: bold;
+
+	
+		}
+
+		li a:hover{
+			color: white;
 		
 		}
 
 		.sub-menu li{
 			display: block;
-			color: blue;
+
+			a:hover{
+				border-bottom: none;
+			}
+
 		}
 	}
 }
@@ -121,7 +144,7 @@ ul{
 	li{
 		text-align: center;
 		line-height: 2;
-		color: white;
+		color: $gold;
 		margin-bottom: 0;
 
 	}
@@ -137,6 +160,8 @@ ul{
 		position: absolute;
 		margin-top: 0;
 		padding-top: 0;
+		z-index: 1;
+		background-color: white;
 		@media screen and (min-width: 600px){
 			display: none;
 		}
@@ -144,7 +169,6 @@ ul{
 
 	li:hover ul{
 		display: block;
-		color: blue;
 
 
 		a{
@@ -210,7 +234,7 @@ ul{
 		padding-left: 0;
 
 		li{
-			border-bottom: 1px dotted white;
+			//border-bottom: 1px dotted white;
 			text-align: center;
 			line-height: 2;
 		}
@@ -314,15 +338,24 @@ body.show_sidemenu .pusher{
 	min-height: 500px;  /* Remove this once content in page */
 	text-align: center;
 
+	@media screen and (min-width: 600px){
+		margin-top: 50px;
+	}
+
 
 	#name1{
-	font-family: 'Economica';
-	font-size: 3em;
-	color: $gold;
-	text-align: center;
-	-webkit-font-smoothing: antialiased;
-	letter-spacing: 10px;
-	margin-bottom: 0;
+		font-family: 'Economica';
+		font-size: 3em;
+		color: $gold;
+		text-align: center;
+		-webkit-font-smoothing: antialiased;
+		letter-spacing: 10px;
+		margin-bottom: 0;
+
+		@media screen and (min-width: 600px){
+			font-size: 5em;
+		}
+
 	}
 
 	#name2{
@@ -333,6 +366,10 @@ body.show_sidemenu .pusher{
 		-webkit-font-smoothing: antialiased;
 		letter-spacing: 5px;
 		margin-top: 0;
+
+		@media screen and (min-width: 600px){
+			font-size: 4.5em;
+		}
 
 	}
 
@@ -354,9 +391,13 @@ body.show_sidemenu .pusher{
 
 .face-pic img{
 	margin-top: 60px;
-	width: 95vw;
+	width: 100vw;
 	padding: 5px;
 	background-color: white;
+	@media screen and (min-width: 600px){
+		width: 100%;
+		margin-top: 80px;
+	}
 }
 
 .promotion-box{
@@ -424,8 +465,8 @@ h2{
 }
 
 .treatments{
-	@media screen and (max-width: 600px){
-		justify-content: space-between;
+	@media screen and (min-width: 600px){
+		padding: 10px;
 	}
 
 	a{
