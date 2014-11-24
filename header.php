@@ -26,9 +26,20 @@
 		</div>
 
 		<header>
-			<div class="container" id="b-menu">
+			<div class="container flex flex-j-between" id="b-menu">
 				<div class="main-menu">
 					<?php wp_nav_menu('header-menu'); ?>
+				</div>
+				<div class="login-menu">
+					<a href="#" id="left">Sign In</a>
+					<a href="#">Sign Up</a>
+				</div>
+				<div class="header-logo">
+					<h1 id="logo1">BEAUTY</h1>
+					<h1 id="logo2">BOUTIQUE</h1>
+					<div class="main-pic">
+						<div id="x-logopic"></div>
+					</div>
 				</div>
 				<div data-icon="&#xe0b8;"  id="icon-hamburger" class="open1"></div>
 				<a href="#">

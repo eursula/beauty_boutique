@@ -19,8 +19,6 @@ body{
 	overflow-x: hidden;
 }
 
-
-
 header{
 	background: $background-color;
 	color: #fff;
@@ -56,7 +54,6 @@ header .container:after{ content: normal; }
 	padding-right: 0;
 	display: flex;
 	max-width: 960px;
-
 }
 
 #icon-user:before,
@@ -77,7 +74,7 @@ header .container:after{ content: normal; }
 #icon-user:before{
 	margin-right: 5px;
 	@media screen and (min-width: 600px){
-		//display: none;
+		display: none;
 	} 
 }
 
@@ -88,7 +85,7 @@ header .container:after{ content: normal; }
 
 	@media screen and (min-width: 600px){
 		display: none;
-		width: 800px;
+		//width: 800px;
 		display: flex;
 		justify-content: space-between;
 
@@ -99,38 +96,49 @@ header .container:after{ content: normal; }
 		}
 
 		li{
-			//background-color: $gold;
 			margin-bottom: 0;
-			width: 132px;
+			border-color: black transparent;
+
 
 			li:hover{
-				background-color: $gold;
-				
+				background-color: $gold;	
 			}
 		}
 
 		a{
 			color: $gold;
-			font-size: 1.5em;
-			margin: 1em;
+			font-size: 1.2em;
+			margin: .5em;
 			padding-bottom: 0;
 			font-weight: bold;
-
-	
 		}
 
 		li a:hover{
 			color: white;
-		
+			text-decoration: none;
 		}
 
+		.submenu{
+			display: block;
+			border-style: solid;
+			@media screen and (max-width: 600px){
+				height: 300px;
+			}
+			//border-width: 0px 20px 20px 20px;
+			//height: 0px;
+			//width: 0px;
+
+		}
 		.sub-menu li{
 			display: block;
 
-			a:hover{
-				border-bottom: none;
+			
+			@media screen and (min-width: 600px){
+				a:hover{
+					border-bottom: none;
+					text-decoration: none;
+				}
 			}
-
 		}
 	}
 }
@@ -162,18 +170,70 @@ ul{
 		padding-top: 0;
 		z-index: 1;
 		background-color: white;
+
 		@media screen and (min-width: 600px){
 			display: none;
 		}
+
 	}
 
 	li:hover ul{
-		display: block;
 
+		@media screen and (min-width: 600px){
+			display: block;
+
+		}
 
 		a{
 			width: 150px;
 		}
+	}
+}
+
+.header-logo{
+	cursor: pointer;
+	target: 'index.php/home';
+	-webkit-transform: scale(1.1);
+
+	#logo1{
+		font-family: 'Economica';
+		font-size: 2em;
+		color: $gold;
+		text-align: center;
+		-webkit-font-smoothing: antialiased;
+		letter-spacing: 5px;
+		margin-bottom: 0;
+		
+	}
+
+	#logo2{
+		font-family: 'Open Sans';
+		font-size: 1.7em;
+		text-align: center;
+		color: white;
+		-webkit-font-smoothing: antialiased;
+		letter-spacing: 2px;
+		margin-top: 0;
+		
+
+	}
+
+	.main-pic{
+		display: flex;
+		justify-content: center;
+		
+
+		#x-logopic{
+			background-image: url("img/logo-gold.png");
+			background-size: 100% 100%;
+			height: 25px;
+			width: 25px;
+			-webkit-transform: scale(0.8);
+			margin-top: -10px;
+		}
+	}
+	@media screen and (max-width: 600px){
+		display: none;
 	}
 }
 
@@ -226,7 +286,7 @@ ul{
 	background: $gold;
 	text-align: center;
 
-
+	
 	ul{
 		text-decoration: none;
 		list-style: none;
@@ -253,9 +313,34 @@ ul{
 	}
 }
 
+.login-menu{
+	display: flex;
+	justify-content: space-around;
+	margin-left: 70px;
+	margin-right: 30px;
+	width: 110px;
+	//background-color: $gold;
+
+
+	#left{
+		padding-right: 15px;
+		border-right: 1px solid white;
+	}
+
+
+	a{
+		//padding: 10px;
+		color: white;
+	}
+
+	@media screen and (max-width: 600px){
+		display: none;
+	}
+}
+
 
 #sidemenu{
-	$width: 170px;
+	$width: 200px;
 	position: absolute;
 	left: -$width;
 	top: 0;
@@ -263,7 +348,7 @@ ul{
 	transition: left 0.4s ease;
 	background: white;
 	text-align: center;
-	height: 90vh;
+	height: 100vh;
 
 
 	ul{
@@ -326,7 +411,7 @@ body.show_usermenu .pusher{
 
 body.show_sidemenu .pusher{
 	// margin-left: 150px;
-	transform: translate3d(170px,0,0);
+	transform: translate3d(200px,0,0);
 
 }
 /*---------------------------- Page with name -------------------------------------------*/
@@ -335,7 +420,7 @@ body.show_sidemenu .pusher{
 	display: flex;
 	flex-direction: column;
 	margin-top: 80px;
-	min-height: 500px;  /* Remove this once content in page */
+	//min-height: 500px;  /* Remove this once content in page */
 	text-align: center;
 
 	@media screen and (min-width: 600px){
@@ -370,9 +455,7 @@ body.show_sidemenu .pusher{
 		@media screen and (min-width: 600px){
 			font-size: 4.5em;
 		}
-
 	}
-
 }
 
 .main-pic{
@@ -423,17 +506,30 @@ body.show_sidemenu .pusher{
 		padding: 10px;
 		
 	}
-}	
+}
 
 /*---------------------------- Page display treatments --------------------------------*/
 
 h2{
 	color: white;
-	font-size: 2em;
+	font-size: 1.3em;
+	letter-spacing: 5px;
+
+	@media screen and (min-width: 600px){
+		font-size: 1.5em;
+		padding-left: 10px;
+	}
+
 }
 
 .page-title{
+	margin-top: 20px;
 	flex-direction: row;
+	text-align: center;
+
+	@media screen and (min-width: 600px){
+		text-align: left;
+	}
 }
 
 .flex-row{
@@ -460,6 +556,10 @@ h2{
 
 }
 
+.tr-image{
+	overflow: hidden;
+}
+
 .tr-image img{
 	width: 100%;
 }
@@ -467,6 +567,11 @@ h2{
 .treatments{
 	@media screen and (min-width: 600px){
 		padding: 10px;
+	}
+
+	#image-w{
+		max-width: 450px;
+
 	}
 
 	a{
@@ -485,14 +590,49 @@ h2{
       		rgba(1, 0, 0, 0.6)
 	    );
 		//filter:alpha(opacity=90);
-		//transform: scale(1.1,1.1);
 	}
-
-	#image-w{
-		max-width: 450px;
-	}
-
 }
+/*------------------------------------------- Page w Banner -------------------------------------------*/
+
+.treatment-title{
+	margin-top: 40px;
+	font-size: 1em;
+	color: white;
+	padding-left: 10px;	
+	letter-spacing: 2px;
+
+	@media screen and (min-width: 600px){
+		font-size: 1.2em;
+		
+	}	
+}
+
+.banner{
+	//margin-top: 10px;
+
+	img{
+		width: 100%;
+		height: 300px;
+		margin-left: 0;
+
+		@media screen and (max-width: 600px){
+			height: 200px;
+		}
+	}
+}
+
+/*---------------------------- Page display FAQs --------------------------------*/
+
+#verticleTab{
+	width: 100%;
+}
+.resp-tabs-container{
+	width: 100%;
+	margin-top: 50px;
+}
+
+
+
 
 /*------------------------------------------- Footer -------------------------------------------*/
 footer{
@@ -539,3 +679,11 @@ footer{
 .flex-a-center{ align-items: center; }
 .flex-a-stretch{ align-items: stretch; }
 .flex-wrap{ flex-wrap: wrap; }
+
+.up-arrow {
+	border-color: black transparent;
+	border-style: solid;
+	border-width: 0px 10px 10px 10px;
+	height: 0px;
+	width: 0px;
+}
