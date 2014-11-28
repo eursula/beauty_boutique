@@ -23,7 +23,10 @@ header{
 	background: $background-color;
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
-	
+
+	/*@media screen and (min-width: 600px){
+			position: fixed;
+		}*/
 }
 
 header .container{
@@ -39,9 +42,8 @@ header .container{
 
 		@media screen and (min-width: 600px){
 			display: none;
-		} 
-		
-	}
+		} 	
+	}	
 }
 
 /* fix bootstrap and flex not working well together */
@@ -674,6 +676,14 @@ h2{
 See separate stylesheet: 'easy-responsive-tabs.css'
 
 //
+
+
+/*------------------------------------ Booking Form -----------------------------*/
+
+
+.birs_form_field.birs_appointment_location { display: none; }
+
+.birs_form_field.birs_appointment_service { display: block; }
 
 
 /*------------------------------------ Register Form -----------------------------*/
