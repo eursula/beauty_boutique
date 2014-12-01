@@ -2,15 +2,15 @@
 
 <?php get_header(); ?>
 
-	<div id="booking-form">
-		<div class="container">
+	<div class="container flex flex-column">
+		<h2><?php echo the_title(); ?></h2>
+
+		<div id="booking-form" class="container flex flex-row">
 			<?php if ( have_posts()) :
 		   while ( have_posts()) : the_post(); ?>
 
-		   <h2><?php echo the_title(); ?></h2>
-
 		   	<?php echo the_content(); ?>
-			<?php echo types_render_field('service-treatment', ['output' => 'html']); ?>
+			
 			<?php endwhile; else: ?>
 				<p>No Posts</p>
 			<?php endif; ?>
