@@ -11,13 +11,14 @@ function register_my_menus() {
       'top-menu' => __( 'Top Menu' ),
       'side-menu' => __( 'Side Menu' ),
       'user-menu' => __( 'User Menu' ),
+      'header-user-menu' => __( 'Header User Menu' )
     )
   );
 }
 
 add_action( 'init', 'register_my_menus' );
 
-add_action('header_menu', 'register_my_custom_submenu_page');
+//add_action('header_menu', 'register_my_custom_submenu_page');
 
 add_editor_style('editor-style.css');
 
@@ -74,6 +75,9 @@ if(!is_admin()){
 	# Theme styles
 	wp_enqueue_style('theme', $dir.'/css/style.css');
 
+
+
+	# Appointments Plus redirect
 	function add_appointments_css_style() {
 		if ( !class_exists( 'Appointments' ) )
 			return;
@@ -83,6 +87,100 @@ if(!is_admin()){
 		$appointments->load_scripts_styles( );
 	}
 	add_action( 'template_redirect', 'add_appointments_css_style' );
+
+
+	# Login function
+	function beauty_login_init () {
+	    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 'login';
+
+	    if ( isset( $_POST['wp-submit'] ) ) {
+	        $action = 'post-data';
+	    } else if ( isset( $_GET['reauth'] ) ) {
+	        $action = 'reauth';
+	    } else if ( isset($_GET['key']) ) {
+	        $action = 'resetpass-key';
+	    }
+
+	    # redirect to change password form
+	    if ( $action == 'rp' || $action == 'resetpass' ) {
+	        wp_redirect( home_url('/login/?action=resetpass') );
+	        exit;
+	    }
+
+	    // redirect from wrong key when resetting password
+	    if ( $action == 'lostpassword' && isset($_GET['error']) && ( $_GET['error'] == 'expiredkey' || $_GET['error'] == 'invalidkey' ) ) {
+	        wp_redirect( home_url( '/login/?action=forgot&failed=wrongkey' ) );
+	        exit;
+	    }
+
+	    if (
+	        $action == 'post-data'        ||            // don't mess with POST requests
+	        $action == 'reauth'           ||            // need to reauthorize
+	        $action == 'resetpass-key'    ||            // password recovery
+	        $action == 'logout'                         // user is logging out
+	    ) {
+	        return;
+	    }
+
+	    //wp_redirect( home_url( '/login/' ) );
+	    //exit;
+	}
+	add_action('login_init', 'beauty_login_init');
+
+	function beauty_template_redirect () {
+	    if ( is_page( 'login' ) && is_user_logged_in() ) {
+	        wp_redirect( home_url( '/user/' ) );
+	        exit();
+	    }
+
+	    if ( is_page( 'user' ) && !is_user_logged_in() ) {
+	        wp_redirect( home_url( '/sign-in/' ) );
+	        exit();
+	    }
+	    if ( is_page( 'book-online' ) && !is_user_logged_in() ) {
+	        wp_redirect( home_url( '/sign-in/' ) );
+	        exit();
+	    }
+	}
+	add_action( 'template_redirect', 'beauty_template_redirect' );
+
+
+	/* User Page */
+	global $current_user;
+	get_currentuserinfo();
+
+	require_once( ABSPATH . WPINC . '/registration.php' );
+
+	if ( !empty($_POST) && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
+
+	    /* Update user password */
+	    if ( !empty($_POST['current_pass']) && !empty($_POST['pass1'] ) && !empty( $_POST['pass2'] ) ) {
+
+	        if ( !wp_check_password( $_POST['current_pass'], $current_user->user_pass, $current_user->ID) ) {
+	            $error = 'Your current password does not match. Please retry.';
+	        } elseif ( $_POST['pass1'] != $_POST['pass2'] ) {
+	            $error = 'The passwords do not match. Please retry.';
+	        } elseif ( strlen($_POST['pass1']) < 4 ) {
+	            $error = 'Password too short';
+	        } elseif ( false !== strpos( wp_unslash($_POST['pass1']), "\\" ) ) {
+	            $error = 'Password may not contain the character "\\" (backslash).';
+	        } else {
+	            $error = wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => esc_attr( $_POST['pass1'] ) ) );
+
+	            if ( !is_int($error) ) {
+	                $error = 'An error occurred while updating your profile. Please retry.';
+	            } else {
+	                $error = false;
+	            }
+	        }
+
+	        if ( empty($error) ) {
+	            do_action('edit_user_profile_update', $current_user->ID);
+	            wp_redirect( site_url('/user/') . '?success=1' );
+	            exit;
+	        }
+	    }
+	}
 
 }
 

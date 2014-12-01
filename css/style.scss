@@ -764,6 +764,22 @@ p.statement {
     color: $gold;
 }
 
+/*------------------------------------ Login Form -----------------------------*/
+
+.login-form{
+	background-color: white;
+	padding: 5px;
+	margin-top: 20px;
+}
+
+input[type="text"]{
+	padding-right: 5px;
+}
+
+label{
+	margin-right: 10px;
+}
+
 /*------------------------------------ Footer -----------------------------*/
 footer{
 	display: flex;
