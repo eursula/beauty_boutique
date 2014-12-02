@@ -798,6 +798,10 @@ p.statement {
   font-size: .9em;
   color: #b2854c; }
 
+/*--------- Version 2 -----------*/
+.container .register label {
+  color: white; }
+
 /*------------------------------------ Login Form -----------------------------*/
 .login-form {
   background-color: white;

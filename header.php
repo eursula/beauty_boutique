@@ -38,7 +38,7 @@
 					<?php else: ?>
 					<a href="index.php/sign-in" id="left">Sign In</a>
 					<div id="registration">
-						<a class="show register-button" href="#register-form">Sign Up</a>
+						<a href="index.php/sign-up">Sign Up</a>
 					</div>
 					<?php endif; ?>
 				</div>
