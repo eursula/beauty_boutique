@@ -11,7 +11,8 @@ function register_my_menus() {
 	  'top-menu' => __( 'Top Menu' ),
 	  'side-menu' => __( 'Side Menu' ),
 	  'user-menu' => __( 'User Menu' ),
-	  'header-user-menu' => __( 'Header User Menu' )
+	  'header-user-menu' => __( 'Header User Menu' ),
+	  'logged-in-user' => __( 'Logged In User' )
 	)
   );
 }
@@ -182,6 +183,25 @@ if(!is_admin()){
 		}
 	}
 
+	# http://wordpress.stackexchange.com/questions/2143/customizing-only-a-specific-menu-using-the-wp-nav-menu-items-hook
+	add_filter( 'wp_nav_menu_items', 'my_custom_menu_item', 10, 2);
+
+	function my_custom_menu_item($items, $args) {
+
+		// quit this function early and don't change anything if this function is not running on the menu we want
+		if($args->theme_location == 'header-user-menu' || $args->theme_location == 'logged-in-user'){
+			if(is_user_logged_in()) {
+			 
+			    $user = wp_get_current_user();
+
+			    $name = $user->user_firstname; // or user_login , user_firstname, user_lastname
+			    $items .= '<li style="color: white; padding-left: 30px;">Welcome, '.$name.'</li>';
+			}
+		}
+
+		return $items;
+
+	}
 }
 
 

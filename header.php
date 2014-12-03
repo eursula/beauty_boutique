@@ -19,8 +19,13 @@
 		</div>
 
 		<div id="usermenu">
-			<p>Log in or register with us</p>
-			<?php wp_nav_menu( array( 'theme_location' => 'user-menu' ) ); ?>
+			<?php if(is_user_logged_in()): ?>
+				<?php wp_nav_menu(array( 'theme_location' => 'logged-in-user' ) ); ?>
+				<li><a href="<?php echo wp_logout_url('index.php'); ?>" title="Logout" class="logout">Logout</a></li>
+			<?php else: ?>
+				<p>Log in or register with us</p>
+				<?php wp_nav_menu( array( 'theme_location' => 'user-menu' ) ); ?>
+			<?php endif; ?>
 		</div>
 
 		<header>

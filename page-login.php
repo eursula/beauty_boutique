@@ -5,8 +5,14 @@
 	<h1>Login</h1>
 	<div class="container login-form">
 
-
-		<?php wp_login_form(); ?>
+		<?php 
+			$args = [
+				'redirect' => site_url( $_SERVER['index.php']),
+				'form_id'  => 'loginform'
+			]
+		?>
+		
+		<?php wp_login_form($args); ?>
 
 	</div>
 	<!--<div class="container">
