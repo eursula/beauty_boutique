@@ -195,7 +195,7 @@ if(!is_admin()){
 			    $user = wp_get_current_user();
 
 			    $name = $user->user_firstname; // or user_login , user_firstname, user_lastname
-			    $items .= '<li style="color: white; padding-left: 30px;">Welcome, '.$name.'</li>';
+			    $items .= '<li style="color: white; padding-left: 10px;">Welcome, '.$name.'</li>';
 			}
 		}
 
