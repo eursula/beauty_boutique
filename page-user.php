@@ -1,9 +1,8 @@
-<?php /* Template Name: Page display User */ 
+<?php /* Template Name: Page display Account */ 
 
 	get_header(); ?>
-?>
 
-<div class="container">
+<div class="container account-form flex">
 	
 
 	<form method="post" action="/user/">

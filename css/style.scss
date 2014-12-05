@@ -7,6 +7,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 $background-color: #373737;
 $gold: #B2854C;
+$grey: #ABB7B7;
+$pink: #F1A9A0;;
 
 
 body{
@@ -17,6 +19,8 @@ body{
 	transition: padding-top 0.4s ease;
 	overflow-y: scroll;
 	overflow-x: hidden;
+
+
 }
 
 header{
@@ -66,7 +70,7 @@ header .container:after{ content: normal; }
 }
 
 #icon-hamburger:before{
-	color: $gold;
+	color: $pink;
 	margin-left: 5px;
 	@media screen and (min-width: 600px){
 		display: none;
@@ -80,7 +84,14 @@ header .container:after{ content: normal; }
 	} 
 }
 
+/*.fixed-menu{
+	position: fixed;
+	background-color: $background-color;
+
+}*/
+
 .container .main-menu{
+
 	@media screen and (max-width: 600px){
 		display: none;
 	}
@@ -103,12 +114,12 @@ header .container:after{ content: normal; }
 
 
 			li:hover{
-				background-color: $gold;	
+				background-color: $pink;	
 			}
 		}
 
 		a{
-			color: $gold;
+			color: $pink;
 			font-size: 1.2em;
 			margin: .5em;
 			padding-bottom: 0;
@@ -144,6 +155,7 @@ header .container:after{ content: normal; }
 		}
 	}
 }
+
 
 ul{
 	text-decoration: none;
@@ -203,7 +215,7 @@ a .header-logo{
 	#logo1{
 		font-family: 'Economica';
 		font-size: 2em;
-		color: $gold;
+		color: $pink;
 		text-align: center;
 		-webkit-font-smoothing: antialiased;
 		letter-spacing: 5px;
@@ -501,10 +513,9 @@ body.show_sidemenu .pusher{
 }
 
 .face-pic img{
-	margin-top: 60px;
+	margin-top: 80px;
 	width: 100vw;
-	padding: 5px;
-	background-color: white;
+
 	@media screen and (min-width: 600px){
 		width: 100%;
 		margin-top: 80px;
@@ -703,6 +714,7 @@ See separate stylesheet: 'easy-responsive-tabs.css'
 
 #primary{
 	color: #ddd;
+
 }
 
 /*------------------------------------ Register Form -----------------------------*/
@@ -783,13 +795,41 @@ p.statement {
 	color: white;
 }
 
+/*--------------------------------------- My Account Form ---------------------*/
+
+.account-form{
+	padding: 10px;
+	margin-top: 50px;
+	//background-color: rgba(255, 255, 255, 0.2);
+	background-color: $grey;
+	
+
+	label{
+		color: white;
+		-webkit-font-smoothing: antialiased;
+		font-size: 16px;
+	}
+
+	input{
+		border: none;
+		border-radius: 2px;
+		font-size: 14px;
+	}
+
+	p{
+		color: $gold;
+	}
+}
 
 
-/*------------------------------------ Facials -----------------------------*/
+
+
+/*------------------------------------ Page display Services -----------------------------*/
 
 .facial-content{
 	background-color: white;
 	//margin-top: 20px;
+	box-shadow: 10px 10px 5px white;
 	padding: 20px;
 
 	@media screen and (max-width: 600px){
@@ -820,6 +860,13 @@ p.statement {
 		font-weight: bold;
 		font-size: 1.1em;
 	}
+}
+
+#back-arrow{
+	color: $gold;
+	padding-bottom: 10px;
+	padding-left: 5px;
+
 }
 /*------------------------------------ Login Form -----------------------------*/
 

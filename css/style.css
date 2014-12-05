@@ -254,7 +254,7 @@ header .container:after {
   font-size: 2.5em; }
 
 #icon-hamburger:before {
-  color: #b2854c;
+  color: #f1a9a0;
   margin-left: 5px; }
   @media screen and (min-width: 600px) {
     #icon-hamburger:before {
@@ -266,6 +266,11 @@ header .container:after {
     #icon-user:before {
       display: none; } }
 
+/*.fixed-menu{
+	position: fixed;
+	background-color: $background-color;
+
+}*/
 @media screen and (max-width: 600px) {
   .container .main-menu {
     display: none; } }
@@ -288,9 +293,9 @@ header .container:after {
       margin-bottom: 0;
       border-color: black transparent; }
       .container .main-menu li li:hover {
-        background-color: #b2854c; }
+        background-color: #f1a9a0; }
     .container .main-menu a {
-      color: #b2854c;
+      color: #f1a9a0;
       font-size: 1.2em;
       margin: .5em;
       padding-bottom: 0;
@@ -350,7 +355,7 @@ ul {
   .header-logo #logo1 {
     font-family: 'Economica';
     font-size: 2em;
-    color: #b2854c;
+    color: #f1a9a0;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     letter-spacing: 5px;
@@ -583,10 +588,8 @@ body.show_sidemenu .pusher {
     -webkit-transform: scale(0.8); }
 
 .face-pic img {
-  margin-top: 60px;
-  width: 100vw;
-  padding: 5px;
-  background-color: white; }
+  margin-top: 80px;
+  width: 100vw; }
   @media screen and (min-width: 600px) {
     .face-pic img {
       width: 100%;
@@ -806,9 +809,27 @@ p.statement {
 .container .register label {
   color: white; }
 
-/*------------------------------------ Facials -----------------------------*/
+/*--------------------------------------- My Account Form ---------------------*/
+.account-form {
+  padding: 10px;
+  margin-top: 50px;
+  background-color: #abb7b7; }
+  .account-form label {
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px; }
+  .account-form input {
+    border: none;
+    border-radius: 2px;
+    font-size: 14px; }
+  .account-form p {
+    color: #b2854c; }
+
+/*------------------------------------ Page display Services -----------------------------*/
 .facial-content {
   background-color: white;
+  -webkit-box-shadow: 10px 10px 5px white;
+  box-shadow: 10px 10px 5px white;
   padding: 20px; }
   @media screen and (max-width: 600px) {
     .facial-content {
@@ -828,6 +849,11 @@ p.statement {
   .facial-content h3 {
     font-weight: bold;
     font-size: 1.1em; }
+
+#back-arrow {
+  color: #b2854c;
+  padding-bottom: 10px;
+  padding-left: 5px; }
 
 /*------------------------------------ Login Form -----------------------------*/
 .login-form {

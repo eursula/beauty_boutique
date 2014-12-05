@@ -7,6 +7,9 @@
 	<?php the_post(); ?>
 
 	<h2 class="treatment-title"><?php echo the_title(); ?></h2>
+	<div class="back-to flex flex-start">
+		<a href="<?php echo home_url('treatments') ?>" data-icon="&#xe12e;"  id="back-arrow" class="back">Back to treatments</a>
+	</div>
 
 	<div class="banner">
 		<?php echo types_render_field('service-image', ['url' => false]); ?>
