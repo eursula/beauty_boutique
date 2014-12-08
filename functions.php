@@ -12,7 +12,8 @@ function register_my_menus() {
 	  'side-menu' => __( 'Side Menu' ),
 	  'user-menu' => __( 'User Menu' ),
 	  'header-user-menu' => __( 'Header User Menu' ),
-	  'logged-in-user' => __( 'Logged In User' )
+	  'logged-in-user' => __( 'Logged In User' ),
+	  'logged-in-pages' => __( 'Logged In Pages' )
 	)
   );
 }
@@ -177,7 +178,7 @@ if(!is_admin()){
 
 			if ( empty($error) ) {
 				do_action('edit_user_profile_update', $current_user->ID);
-				wp_redirect( site_url('/user/') . '?success=1' );
+				wp_redirect( home_url('/user/') . '?success=1' );
 				exit;
 			}
 		}
@@ -202,6 +203,33 @@ if(!is_admin()){
 		return $items;
 
 	}
+
+	function app_redirect( $script ){ 
+	    return str_replace("window.location.href=app_location()", "window.location.href='http://eursula.hicks.yoobee.net.nz/beauty_boutique'", $script); 
+	} 
+	add_filter( 'app_footer_scripts', 'app_redirect' );
+
+
+	# Change logo and styles for login page when errors occur
+	function my_login_logo() { ?>
+	    <style type="text/css">
+	        body.login div#login h1 a {
+	            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/css/img/pink-letter-logo.png);
+	            padding-bottom: 30px;
+	        }
+	    </style>
+	<?php }
+	add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+		function my_login_logo_url() {
+	    return home_url();
+	}
+	add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+	function my_login_logo_url_title() {
+	    return 'Beauty Boutique';
+	}
+	add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 }
 
 

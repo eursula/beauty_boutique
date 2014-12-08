@@ -5,10 +5,12 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 
 @import url(http://fonts.googleapis.com/css?family=Economica|Fira+Mono|Oxygen+Mono|Open+Sans|Open+Sans+Condensed:300);
 
-$background-color: #373737;
+$background-color: #000F16;
 $gold: #B2854C;
 $grey: #ABB7B7;
-$pink: #F1A9A0;;
+$light-grey: #D2D7D3;
+$white-grey: #EEEEEE;
+$pink: #F1A9A0;
 
 
 body{
@@ -27,16 +29,23 @@ header{
 	background: $background-color;
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
+	height: 120px;
+	width: 100%;
+	position: fixed;
+	padding-bottom: 30px;
+	z-index: 10;
 
-	/*@media screen and (min-width: 600px){
-			position: fixed;
-		}*/
+	@media screen and (max-width: 600px){
+		height: 70px;
+		padding-top: 1em;
+	}
 }
 
 header .container{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
 
 	.icon-button{
 		background-image: url("img/B.png") ;
@@ -113,8 +122,11 @@ header .container:after{ content: normal; }
 			border-color: black transparent;
 
 
+
 			li:hover{
-				background-color: $pink;	
+				background-color: $pink;
+				color: white;
+
 			}
 		}
 
@@ -144,15 +156,48 @@ header .container:after{ content: normal; }
 		}
 		.sub-menu li{
 			display: block;
+			padding: 5px 10px 5px 10px;
+
 
 			
 			@media screen and (min-width: 600px){
 				a:hover{
 					border-bottom: none;
 					text-decoration: none;
+
 				}
 			}
 		}
+	}
+}
+
+#main{
+	padding-top: 10px;
+
+	@media screen and (min-width: 600px){
+		padding-top: 100px;
+	}
+}
+
+#main.long{
+	padding-top: 150px;
+}
+
+.container-grey{
+	background-color: $light-grey;
+}
+
+.container-white{
+	background-color: $white-grey;
+	//border-bottom: 1px dotted $grey;
+
+	h2{
+		color: $grey;
+		padding-top: 20px;
+	}
+
+	.content{
+		color: $pink;
 	}
 }
 
@@ -248,7 +293,7 @@ a .header-logo{
 		justify-content: center;
 		
 		#x-logopic{
-			background-image: url("img/logo-gold.png");
+			background-image: url("img/logo-white.png");
 			background-size: 100% 100%;
 			height: 25px;
 			width: 25px;
@@ -311,7 +356,7 @@ a:hover{
 	left: 0;
 	width: 100%;
 	transition: top 0.4s ease;
-	background: $gold;
+	background: $pink;
 	text-align: center;
 
 	
@@ -430,7 +475,6 @@ a:hover{
 	-o-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 
-	padding-top: 1em;
 }
 /*
 	State of the page with the activated topmenu	
@@ -513,12 +557,31 @@ body.show_sidemenu .pusher{
 }
 
 .face-pic img{
-	margin-top: 80px;
 	width: 100vw;
+	margin-top: 65px;
+	position: fixed;
+	height: 200px;
+	z-index: -1;
 
 	@media screen and (min-width: 600px){
+		margin-top: 100px;
+		padding-top: 70px;
 		width: 100%;
 		margin-top: 80px;
+		height: 550px;
+		position: fixed;
+	}
+}
+
+#content{
+	width: 100%;
+	position: relative;
+	top: 272px;
+	background-color: rgba(0, 15, 22, 0.9);
+	
+	@media screen and (min-width: 600px){
+		top: 630px;
+		//height: 1500px; /* Demo purposes */
 	}
 }
 
@@ -528,7 +591,8 @@ body.show_sidemenu .pusher{
 	justify-content: center;
 	margin: 10px;
 	//background-color: white;
-	border: 5px solid $gold;
+	border: 2px solid $gold;
+	width: 45%;
 
 	img{
 		width: 20px;
@@ -547,29 +611,61 @@ body.show_sidemenu .pusher{
 	}
 }
 
+.row{
+	margin-top: 50px;
+	width: 100%;
+}
+
 /*-------------------------- Page Two Columns ---------------------------------*/
 .cols{
 	//background-color: white;
+	flex-direction: row;
 
+	
 	@media screen and (max-width: 600px){
 		width: 100%;
-
+		flex-direction: column;
 	}
 }
+
 .main{
-	padding: 1em 1.5em; 
+	padding: 10px;
+
+	@media screen and (min-width: 600px){
+		padding: 1em 1.5em;
+	}
+
 
 	p, h3{
+		font-size: 1em;
 		color: #ABB7B7;
-		//-webkit-font-smoothing: antialiased;
-		line-height: 2;
-		font-size: 1.5em;
-		text-align: justify;
+		text-align: left;
+		letter-spacing: 2px;
+
+		@media screen and (min-width: 600px){
+			
+			//-webkit-font-smoothing: antialiased;
+			line-height: 2;
+			font-size: 1.3em;
+			text-align: justify;
+			
+		}
+	}
+
+	h2{
+		color: $gold;
+
 	}
 
 	h3{
-		font-size: 2em;
-		color: #F1A9A0;
+		font-size: 1.5em;
+		color: $gold;
+		background-color: white;
+		padding: 10px;
+
+		@media screen and (min-width: 600px){
+			padding: 5px;
+		}
 	}	
 }
 
@@ -705,9 +801,46 @@ See separate stylesheet: 'easy-responsive-tabs.css'
 //.birs_form_field.birs_appointment_location { display: none; }
 
 #booking-form{
-	background-color: white;
+	background-color: $white-grey;;
 	padding: 5px;
+
+	p{
+		font-family: 'Open Sans';
+	}
+
+	select{
+		font-family: 'Open Sans';
+		letter-spacing: 2px;
+		border: none;
+		margin: 5px;
+	}
+
+	option{
+		font-family: 'Open Sans';
+	}
+
+	input[type="button"]{
+		border: none;
+		font-family: 'Open Sans';
+		margin: 10px;
+		padding: 10px;
+	}
+
+	.appointments-legend{
+		display: flex;
+		flex-direction: column;
+	}
 }
+
+.booking{
+	@media screen and (max-width: 600px){
+		padding: 5px;
+		padding-top: 40px;
+	}
+
+	padding-top: 20px;
+}
+
 
 
 /*------------------------------------ Appointments+ Page -----------------------------*/
@@ -719,7 +852,7 @@ See separate stylesheet: 'easy-responsive-tabs.css'
 
 /*------------------------------------ Register Form -----------------------------*/
 
-div#register-form {
+/*div#register-form {
     width: 400px; 
     overflow: hidden; 
     height: 270px; 
@@ -786,20 +919,48 @@ p.statement {
     left:10px;
     font-size:.9em;
     color: $gold;
-}
+}*/
 
 
 /*--------- Version 2 -----------*/
 
-.container .register label{
-	color: white;
+.register-pic{
+	background:
+    linear-gradient(
+      rgba(0, 15, 22, 0.5), 
+      rgba(0, 15, 22, 0.5)
+    ),
+    url("img/stone-spa.jpg" );
+	//background-image: url("img/purple-flower.jpg" no-repeat),
+	;
+	background-size: 100%;
+	//background-color: $grey;
+	min-height: 600px;
+    overflow: hidden;
+    //position: fixed;
+
+}
+
+.container.register{
+	margin-top: 20vh;
+	color: $background-color;
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 2px;
+	-moz-box-shadow: 0 0 5px #555;
+	-webkit-box-shadow: 0 0 5px#555;
+	box-shadow: 0 0 5px #555;
+
+	@media screen and (min-width: 600px){
+		width: 35%;
+		padding: 50px;
+	}
 }
 
 /*--------------------------------------- My Account Form ---------------------*/
 
 .account-form{
 	padding: 10px;
-	margin-top: 50px;
+	margin-top: 150px;
 	//background-color: rgba(255, 255, 255, 0.2);
 	background-color: $grey;
 	
@@ -814,6 +975,7 @@ p.statement {
 		border: none;
 		border-radius: 2px;
 		font-size: 14px;
+		font-family: 'Andale Mono';
 	}
 
 	p{
@@ -821,16 +983,46 @@ p.statement {
 	}
 }
 
+/*-------------------------- Contact Page & Form -----------------------------*/
 
+#contact{
+	background-color: $grey;
+
+	h2{
+		padding-top: 20px;
+	}
+
+	input[type="submit"]{
+		border: none;
+		background-color: $background-color;
+		padding: 5px 10px 5px 10px;
+		border-radius: 2px;
+		color: $grey;
+		font-family: 'Andale Mono';
+	}
+
+	textarea{
+		border: none;
+		padding: 2px;
+		font-family: 'Andale Mono';
+		width: 100%;
+	}
+}
+
+.div.wpcf7-mail-sent-ok{
+	border: 1px dotted $pink;
+
+}
 
 
 /*------------------------------------ Page display Services -----------------------------*/
 
-.facial-content{
+.services-content{
 	background-color: white;
 	//margin-top: 20px;
-	box-shadow: 10px 10px 5px white;
+
 	padding: 20px;
+	
 
 	@media screen and (max-width: 600px){
 		padding: 10px;
@@ -841,6 +1033,7 @@ p.statement {
 
 		@media screen and (max-width: 600px){
 			text-align: center;
+			margin-top: 20px;
 		}
 	}
 	
@@ -863,52 +1056,142 @@ p.statement {
 }
 
 #back-arrow{
-	color: $pink;
+	color: $grey;
 	padding-bottom: 10px;
 	padding-left: 5px;
 
 }
 /*------------------------------------ Login Form -----------------------------*/
 
+.container-pic{
+	background:
+    linear-gradient(
+      rgba(0, 15, 22, 0.5), 
+      rgba(0, 15, 22, 0.5)
+    ),
+    url("img/purple-flower.jpg" );
+	//background-image: url("img/purple-flower.jpg" no-repeat),
+	;
+	background-size: 100%;
+	//background-color: $grey;
+	min-height: 600px;
+    overflow: hidden;
+    //position: fixed;
+}
 .login-form{
-	background-color: white;
-	padding: 5px;
-	margin-top: 20px;
+	//background-color: rgba(255, 255, 255, 0.6);
+	background-color: $white-grey;
+	margin-top: 20vh;
+	border-radius: 2px;
+	-moz-box-shadow: 0 0 5px #555;
+	-webkit-box-shadow: 0 0 5px#555;
+	box-shadow: 0 0 5px #555;
+
+	@media screen and (min-width: 600px){
+		width: 35%;
+		padding: 50px;
+	}
 }
 
-input[type="text"]{
-	padding-right: 5px;
+input[type="text"],
+input[type="password"]{
+	padding: 5px;
+	font-size: 12px;
+	font-family: 'Andale Mono';
 }
 
 label{
 	margin-right: 10px;
+	font-size: 16px;
+}
+
+input[type="submit"]{
+	margin-top: 30px;
+	padding: 10px 20px 10px 20px;
+	border: none;
+	background-color: $background-color;
+	color: white;
+	font-family: 'Open Sans';
+}
+
+.login h1 a {
+	background-image: url('../images/w-logo-blue.png?ver=20131202');
+	background-image: none, url('../images/wordpress-logo.svg?ver=20131107');
+	background-size: 80px 80px;
+	background-position: center top;
+	background-repeat: no-repeat;
+	color: #999;
+	height: 80px;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 1.3em;
+	margin: 0 auto 25px;
+	padding: 0;
+	text-decoration: none;
+	width: 80px;
+	text-indent: -9999px;
+	outline: none;
+	overflow: hidden;
+	display: block;
 }
 
 /*------------------------------------ Footer -----------------------------*/
 footer{
-	display: flex;
-	justify-content: space-between;
 	background-color: white;
-	height: 50px;
-	margin-bottom: 0px;
 
-	.footer-pic{
-		background-image: url("img/logo-gold.png");
-		background-size: 100% 100%;
-		height: 40px;
-		width: 40px;
-		-webkit-transform: scale(0.8);
-		margin: 5px 10px 0 10px;
+	.mobile{
+		height: 50px;
+		margin-bottom: 0px;
+		z-index: 10;
+		width: 100%;
+		height: 250px;
+		display: flex; 
+		flex-direction: flex-row;
+		align-items: flex-j-between;
+
+		@media screen and (max-width: 600px){
+			display: none;
+		}
+
+
+		.footer-pic{
+
+			@media screen and (max-width: 600px){
+				background-image: url("img/logo-gold.png");
+				background-size: 100% 100%;
+				height: 40px;
+				width: 40px;
+				-webkit-transform: scale(0.8);
+				margin: 5px 10px 0 10px;
+			}
+		}
+
+		
+		.logo>p{
+			font-family: 'Economica';
+			color: $gold;
+			font-size: 3em;
+			margin-top: 0;
+			padding-bottom: 10px;
+
+			@media screen and (min-width: 600px){
+				display: none;
+			}
+		}
 	}
 
-	.logo>p{
-		font-family: 'Economica';
-		color: $gold;
-		font-size: 3em;
-		margin-top: 0;
-		padding-bottom: 10px;
+	.desktop{
+		display: flex;
+		flex-direction: row;
+		
+
+		.left-box,
+		.right-box{
+			width: 45%;
+		}
+
 	}
-}
+}	
 
 
 /*----------------------------------- Flexbox ---------------------------------------*/
@@ -937,7 +1220,6 @@ footer{
 	height: 0px;
 	width: 0px;
 }
-
 
 
 

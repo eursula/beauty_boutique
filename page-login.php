@@ -2,19 +2,24 @@
 
 	get_header(); ?>
 	
-	<h1>Login</h1>
-	<div class="container login-form">
-
-		<?php 
-			$args = [
-				'redirect' => site_url( $_SERVER['index.php']),
-				'form_id'  => 'loginform'
-			]
-		?>
-		
-		<?php wp_login_form($args); ?>
-
+	<div id="main">
+		<div class="container-pic">
+			<div class="container login-form flex flex-j-center">
+				
+				<?php 
+					$args = [
+						'redirect' => site_url( $_SERVER['index.php(user)']),
+						'form_id'  => 'loginform'
+					]
+				?>
+				
+				<?php wp_login_form($args); ?>
+				
+				</div>
+			</div>
+		</div>
 	</div>
+	<?php get_footer(); ?>
 	<!--<div class="container">
 		<h1>Registration</h1>
 

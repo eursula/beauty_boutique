@@ -195,19 +195,25 @@ body {
   margin: 0;
   margin: 0 auto;
   font-family: 'Open Sans';
-  background-color: #373737;
+  background-color: #000f16;
   -webkit-transition: padding-top 0.4s ease;
   transition: padding-top 0.4s ease;
   overflow-y: scroll;
   overflow-x: hidden; }
 
 header {
-  background: #373737;
+  background: #000f16;
   color: #fff;
   -webkit-font-smoothing: antialiased;
-  /*@media screen and (min-width: 600px){
-  		position: fixed;
-  	}*/ }
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  padding-bottom: 30px;
+  z-index: 10; }
+  @media screen and (max-width: 600px) {
+    header {
+      height: 70px;
+      padding-top: 1em; } }
 
 header .container {
   display: -webkit-box;
@@ -293,7 +299,8 @@ header .container:after {
       margin-bottom: 0;
       border-color: black transparent; }
       .container .main-menu li li:hover {
-        background-color: #f1a9a0; }
+        background-color: #f1a9a0;
+        color: white; }
     .container .main-menu a {
       color: #f1a9a0;
       font-size: 1.2em;
@@ -311,11 +318,32 @@ header .container:after {
         height: 300px; } }
 @media screen and (min-width: 600px) {
     .container .main-menu .sub-menu li {
-      display: block; } }
+      display: block;
+      padding: 5px 10px 5px 10px; } }
     @media screen and (min-width: 600px) and (min-width: 600px) {
       .container .main-menu .sub-menu li a:hover {
         border-bottom: none;
         text-decoration: none; } }
+
+#main {
+  padding-top: 10px; }
+  @media screen and (min-width: 600px) {
+    #main {
+      padding-top: 100px; } }
+
+#main.long {
+  padding-top: 150px; }
+
+.container-grey {
+  background-color: #d2d7d3; }
+
+.container-white {
+  background-color: #eeeeee; }
+  .container-white h2 {
+    color: #abb7b7;
+    padding-top: 20px; }
+  .container-white .content {
+    color: #f1a9a0; }
 
 ul {
   text-decoration: none;
@@ -382,7 +410,7 @@ ul {
     -ms-flex-pack: center;
     justify-content: center; }
     .header-logo .main-pic #x-logopic {
-      background-image: url("img/logo-gold.png");
+      background-image: url("img/logo-white.png");
       -webkit-background-size: 100% 100%;
       background-size: 100% 100%;
       height: 25px;
@@ -407,7 +435,7 @@ a:hover {
   #topmenu li,
   #sidemenu li,
   #usermenu li {
-    border-bottom: 1px dotted #373737;
+    border-bottom: 1px dotted #000f16;
     text-align: center;
     line-height: 2; }
   #topmenu a,
@@ -440,7 +468,7 @@ a:hover {
   width: 100%;
   -webkit-transition: top 0.4s ease;
   transition: top 0.4s ease;
-  background: #b2854c;
+  background: #f1a9a0;
   text-align: center; }
   #usermenu ul {
     text-decoration: none;
@@ -453,9 +481,9 @@ a:hover {
   #usermenu a {
     color: white; }
   #usermenu a:hover {
-    color: #373737; }
+    color: #000f16; }
   #usermenu p {
-    color: #373737; }
+    color: #000f16; }
   #usermenu #menu-logged-in-user {
     padding-top: 20px; }
   #usermenu a.logout {
@@ -505,14 +533,13 @@ a:hover {
   #sidemenu a {
     color: #b2854c; }
   #sidemenu a:hover {
-    color: #373737; }
+    color: #000f16; }
   #sidemenu p {
-    color: #373737; }
+    color: #000f16; }
 
 .pusher {
   -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  padding-top: 1em; }
+  transition: all 0.2s ease; }
 
 /*
 	State of the page with the activated topmenu	
@@ -588,12 +615,28 @@ body.show_sidemenu .pusher {
     -webkit-transform: scale(0.8); }
 
 .face-pic img {
-  margin-top: 80px;
-  width: 100vw; }
+  width: 100vw;
+  margin-top: 65px;
+  position: fixed;
+  height: 200px;
+  z-index: -1; }
   @media screen and (min-width: 600px) {
     .face-pic img {
+      margin-top: 100px;
+      padding-top: 70px;
       width: 100%;
-      margin-top: 80px; } }
+      margin-top: 80px;
+      height: 550px;
+      position: fixed; } }
+
+#content {
+  width: 100%;
+  position: relative;
+  top: 272px;
+  background-color: rgba(0, 15, 22, 0.9); }
+  @media screen and (min-width: 600px) {
+    #content {
+      top: 630px; } }
 
 .promotion-box {
   display: -webkit-box;
@@ -610,7 +653,8 @@ body.show_sidemenu .pusher {
   -ms-flex-pack: center;
   justify-content: center;
   margin: 10px;
-  border: 5px solid #b2854c; }
+  border: 2px solid #b2854c;
+  width: 45%; }
   .promotion-box img {
     width: 20px;
     height: 20px; }
@@ -621,21 +665,51 @@ body.show_sidemenu .pusher {
     text-align: justify;
     padding: 10px; }
 
+.row {
+  margin-top: 50px;
+  width: 100%; }
+
 /*-------------------------- Page Two Columns ---------------------------------*/
-@media screen and (max-width: 600px) {
-  .cols {
-    width: 100%; } }
+.cols {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  @media screen and (max-width: 600px) {
+    .cols {
+      width: 100%;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column; } }
 
 .main {
-  padding: 1em 1.5em; }
+  padding: 10px; }
+  @media screen and (min-width: 600px) {
+    .main {
+      padding: 1em 1.5em; } }
   .main p, .main h3 {
+    font-size: 1em;
     color: #ABB7B7;
-    line-height: 2;
-    font-size: 1.5em;
-    text-align: justify; }
+    text-align: left;
+    letter-spacing: 2px; }
+    @media screen and (min-width: 600px) {
+      .main p, .main h3 {
+        line-height: 2;
+        font-size: 1.3em;
+        text-align: justify; } }
+  .main h2 {
+    color: #b2854c; }
   .main h3 {
-    font-size: 2em;
-    color: #F1A9A0; }
+    font-size: 1.5em;
+    color: #b2854c;
+    background-color: white;
+    padding: 10px; }
+    @media screen and (min-width: 600px) {
+      .main h3 {
+        padding: 5px; } }
 
 /*---------------------------- Page display treatments --------------------------------*/
 h2 {
@@ -735,84 +809,139 @@ See separate stylesheet: 'easy-responsive-tabs.css'
 
 /*------------------------------------ Booking Form -----------------------------*/
 #booking-form {
-  background-color: white;
+  background-color: #eeeeee;
   padding: 5px; }
+  #booking-form p {
+    font-family: 'Open Sans'; }
+  #booking-form select {
+    font-family: 'Open Sans';
+    letter-spacing: 2px;
+    border: none;
+    margin: 5px; }
+  #booking-form option {
+    font-family: 'Open Sans'; }
+  #booking-form input[type="button"] {
+    border: none;
+    font-family: 'Open Sans';
+    margin: 10px;
+    padding: 10px; }
+  #booking-form .appointments-legend {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+
+.booking {
+  padding-top: 20px; }
+  @media screen and (max-width: 600px) {
+    .booking {
+      padding: 5px;
+      padding-top: 40px; } }
 
 /*------------------------------------ Appointments+ Page -----------------------------*/
 #primary {
   color: #ddd; }
 
 /*------------------------------------ Register Form -----------------------------*/
-div#register-form {
-  width: 400px;
-  overflow: hidden;
-  height: 270px;
-  position: relative;
-  background: #f9f9f9;
-  font-family: Helvetica Neue, Helvetica, Arial !important; }
+/*div#register-form {
+    width: 400px; 
+    overflow: hidden; 
+    height: 270px; 
+    position: relative; 
+    background: #f9f9f9; //url(images/secure.png) no-repeat 260px 40px; 
+    font-family: Helvetica Neue, Helvetica, Arial !important;
+}
 
 div#register-form input[type="text"] {
-  display: block;
-  border: 1px solid #ccc;
-  margin: 5px 20px;
-  padding: 9px 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  width: 200px;
-  font-family: Helvetica Neue, Helvetica, Arial !important;
-  color: #373737; }
-
+    display: block;
+    border: 1px solid #ccc;
+    margin: 5px 20px;
+    padding: 9px 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius:4px;
+    width: 200px;
+    font-family: Helvetica Neue, Helvetica, Arial !important;
+    color: $background-color; 
+}
+ 
 div#register-form input[type="text"]:hover {
-  border-color: #b1b1b1; }
+    border-color: #b1b1b1;
 
+}
+ 
 div#register-form input[type="text"]:focus {
-  -moz-box-shadow: 0 0 3px #ccc;
-  -webkit-box-shadow: 0 0 3px #ccc; }
+    -moz-box-shadow: 0 0 3px #ccc;
+    -webkit-box-shadow: 0 0 3px #ccc;
+}
 
 div#register-form input[type="submit"]#register {
-  background: url(images/register.jpg) no-repeat;
-  border: 0;
-  clear: both;
-  cursor: pointer;
-  height: 31px;
-  overflow: hidden;
-  position: relative;
-  left: 295px;
-  text-indent: -9999px;
-  top: 42px;
-  width: 92px; }
-
+    background: url(images/register.jpg) no-repeat;
+    border: 0;
+    clear: both;
+    cursor: pointer;
+    height: 31px;
+    overflow: hidden;
+    position: relative;
+    left:295px;
+    text-indent: -9999px;
+    top:42px;
+    width:92px;
+}
 div#register-form input[type="submit"]#register:hover {
-  background-position: 0 -32px; }
+    background-position: 0 -32px;
+}
 
 #register-form span {
-  display: block;
-  margin-bottom: 22px;
-  color: #b2854c; }
-
-#register-form .title {
-  margin-left: 15px; }
-
+    display: block;
+    margin-bottom: 22px;
+    color: $gold;
+}
+ 
+#register-form .title {margin-left:15px}
 #register-form .title h1,
 #register-form .title h1 {
-  margin: 7px 0;
-  color: #b2854c; }
-
+    margin:7px 0;
+    color: $gold;
+}
+ 
 p.statement {
-  position: absolute;
-  bottom: -2px;
-  left: 10px;
-  font-size: .9em;
-  color: #b2854c; }
-
+    position:absolute;
+    bottom:-2px;
+    left:10px;
+    font-size:.9em;
+    color: $gold;
+}*/
 /*--------- Version 2 -----------*/
-.container .register label {
-  color: white; }
+.register-pic {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 15, 22, 0.5)), to(rgba(0, 15, 22, 0.5))), url("img/stone-spa.jpg");
+  background: -webkit-linear-gradient(rgba(0, 15, 22, 0.5), rgba(0, 15, 22, 0.5)), url("img/stone-spa.jpg");
+  background: linear-gradient(rgba(0, 15, 22, 0.5), rgba(0, 15, 22, 0.5)), url("img/stone-spa.jpg");
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  min-height: 600px;
+  overflow: hidden; }
+
+.container.register {
+  margin-top: 20vh;
+  color: #000f16;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 5px #555555;
+  box-shadow: 0 0 5px #555; }
+  @media screen and (min-width: 600px) {
+    .container.register {
+      width: 35%;
+      padding: 50px; } }
 
 /*--------------------------------------- My Account Form ---------------------*/
 .account-form {
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 150px;
   background-color: #abb7b7; }
   .account-form label {
     color: white;
@@ -821,79 +950,177 @@ p.statement {
   .account-form input {
     border: none;
     border-radius: 2px;
-    font-size: 14px; }
+    font-size: 14px;
+    font-family: 'Andale Mono'; }
   .account-form p {
     color: #b2854c; }
 
+/*-------------------------- Contact Page & Form -----------------------------*/
+#contact {
+  background-color: #abb7b7; }
+  #contact h2 {
+    padding-top: 20px; }
+  #contact input[type="submit"] {
+    border: none;
+    background-color: #000f16;
+    padding: 5px 10px 5px 10px;
+    border-radius: 2px;
+    color: #abb7b7;
+    font-family: 'Andale Mono'; }
+  #contact textarea {
+    border: none;
+    padding: 2px;
+    font-family: 'Andale Mono';
+    width: 100%; }
+
+.div.wpcf7-mail-sent-ok {
+  border: 1px dotted #f1a9a0; }
+
 /*------------------------------------ Page display Services -----------------------------*/
-.facial-content {
+.services-content {
   background-color: white;
-  -webkit-box-shadow: 10px 10px 5px white;
-  box-shadow: 10px 10px 5px white;
   padding: 20px; }
   @media screen and (max-width: 600px) {
-    .facial-content {
+    .services-content {
       padding: 10px; } }
-  .facial-content h2 {
+  .services-content h2 {
     color: #b2854c; }
     @media screen and (max-width: 600px) {
-      .facial-content h2 {
-        text-align: center; } }
-  .facial-content p {
+      .services-content h2 {
+        text-align: center;
+        margin-top: 20px; } }
+  .services-content p {
     font-size: 1.3em;
     line-height: 2;
     text-align: justify; }
     @media screen and (max-width: 600px) {
-      .facial-content p {
+      .services-content p {
         font-size: 1.1em; } }
-  .facial-content h3 {
+  .services-content h3 {
     font-weight: bold;
     font-size: 1.1em; }
 
 #back-arrow {
-  color: #f1a9a0;
+  color: #abb7b7;
   padding-bottom: 10px;
   padding-left: 5px; }
 
 /*------------------------------------ Login Form -----------------------------*/
-.login-form {
-  background-color: white;
-  padding: 5px;
-  margin-top: 20px; }
+.container-pic {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 15, 22, 0.5)), to(rgba(0, 15, 22, 0.5))), url("img/purple-flower.jpg");
+  background: -webkit-linear-gradient(rgba(0, 15, 22, 0.5), rgba(0, 15, 22, 0.5)), url("img/purple-flower.jpg");
+  background: linear-gradient(rgba(0, 15, 22, 0.5), rgba(0, 15, 22, 0.5)), url("img/purple-flower.jpg");
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  min-height: 600px;
+  overflow: hidden; }
 
-input[type="text"] {
-  padding-right: 5px; }
+.login-form {
+  background-color: #eeeeee;
+  margin-top: 20vh;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 0 5px #555555;
+  box-shadow: 0 0 5px #555; }
+  @media screen and (min-width: 600px) {
+    .login-form {
+      width: 35%;
+      padding: 50px; } }
+
+input[type="text"],
+input[type="password"] {
+  padding: 5px;
+  font-size: 12px;
+  font-family: 'Andale Mono'; }
 
 label {
-  margin-right: 10px; }
+  margin-right: 10px;
+  font-size: 16px; }
+
+input[type="submit"] {
+  margin-top: 30px;
+  padding: 10px 20px 10px 20px;
+  border: none;
+  background-color: #000f16;
+  color: white;
+  font-family: 'Open Sans'; }
+
+.login h1 a {
+  background-image: url("../images/w-logo-blue.png?ver=20131202");
+  background-image: none, url("../images/wordpress-logo.svg?ver=20131107");
+  -webkit-background-size: 80px 80px;
+  background-size: 80px 80px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: #999;
+  height: 80px;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.3em;
+  margin: 0 auto 25px;
+  padding: 0;
+  text-decoration: none;
+  width: 80px;
+  text-indent: -9999px;
+  outline: none;
+  overflow: hidden;
+  display: block; }
 
 /*------------------------------------ Footer -----------------------------*/
 footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  background-color: white;
-  height: 50px;
-  margin-bottom: 0px; }
-  footer .footer-pic {
-    background-image: url("img/logo-gold.png");
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-    height: 40px;
-    width: 40px;
-    -webkit-transform: scale(0.8);
-    margin: 5px 10px 0 10px; }
-  footer .logo > p {
-    font-family: 'Economica';
-    color: #b2854c;
-    font-size: 3em;
-    margin-top: 0;
-    padding-bottom: 10px; }
+  background-color: white; }
+  footer .mobile {
+    height: 50px;
+    margin-bottom: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 250px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: flex-row;
+    -ms-flex-direction: flex-row;
+    flex-direction: flex-row;
+    -webkit-box-align: flex-j-between;
+    -webkit-align-items: flex-j-between;
+    -ms-flex-align: flex-j-between;
+    align-items: flex-j-between; }
+    @media screen and (max-width: 600px) {
+      footer .mobile {
+        display: none; } }
+    @media screen and (max-width: 600px) {
+      footer .mobile .footer-pic {
+        background-image: url("img/logo-gold.png");
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        height: 40px;
+        width: 40px;
+        -webkit-transform: scale(0.8);
+        margin: 5px 10px 0 10px; } }
+    footer .mobile .logo > p {
+      font-family: 'Economica';
+      color: #b2854c;
+      font-size: 3em;
+      margin-top: 0;
+      padding-bottom: 10px; }
+      @media screen and (min-width: 600px) {
+        footer .mobile .logo > p {
+          display: none; } }
+  footer .desktop {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row; }
+    footer .desktop .left-box,
+    footer .desktop .right-box {
+      width: 45%; }
 
 /*----------------------------------- Flexbox ---------------------------------------*/
 .flex {

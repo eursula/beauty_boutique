@@ -2,9 +2,13 @@
 
   	get_header(); ?>
 
-  	<div class="container register">
+	<div id="main">
+		<div class="register-pic">
+	  		<div class="container register flex flex-column">
 
-		<?php custom_registration_function(); ?>
+			<?php custom_registration_function(); ?>
 
+			</div>
+		</div>
 	</div>
   	<?php get_footer(); ?>
