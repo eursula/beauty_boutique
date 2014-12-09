@@ -13,7 +13,8 @@ function register_my_menus() {
 	  'user-menu' => __( 'User Menu' ),
 	  'header-user-menu' => __( 'Header User Menu' ),
 	  'logged-in-user' => __( 'Logged In User' ),
-	  'logged-in-pages' => __( 'Logged In Pages' )
+	  'logged-in-pages' => __( 'Logged In Pages' ),
+	  'logged-out-pages' => __( 'Logged Out Pages' )
 	)
   );
 }
@@ -57,6 +58,15 @@ if(!is_admin()){
 	);
 
 	wp_enqueue_script('tabs');
+
+	# MailChimp newletter sign up
+	wp_register_script('mailChimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js',
+		false,
+		false,
+		true
+	);
+
+	wp_enqueue_script('mailChimp');
 	
 
 	# Theme script
@@ -70,6 +80,9 @@ if(!is_admin()){
 
 	# Bootstrap
 	wp_enqueue_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
+
+	#
+	wp_enqueue_style('mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-081711.css');
 
 	# Tabs styles
 	wp_enqueue_style('tabs-theme', $dir.'/css/easy-responsive-tabs.css');
@@ -131,7 +144,7 @@ if(!is_admin()){
 
 	function beauty_template_redirect () {
 		if ( is_page( 'login' ) && is_user_logged_in() ) {
-			wp_redirect( home_url( '/user/' ) );
+			wp_redirect( home_url( '/user/' )  );
 			exit();
 		}
 
@@ -141,6 +154,7 @@ if(!is_admin()){
 		}
 		if ( is_page( 'book-online' ) && !is_user_logged_in() ) {
 			wp_redirect( home_url( '/sign-in/' ) );
+
 			exit();
 		}
 	}

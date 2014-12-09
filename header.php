@@ -47,7 +47,7 @@
 					<?php else: ?>
 					<a href="<?php echo home_url('sign-in') ?>" id="left">Sign In</a>
 					<div id="registration">
-						<a href="<?php echo home_url('sign-up') ?>">Sign Up</a>
+						<a href="<?php echo home_url('sign-up') ?>" id="right">Sign Up</a>
 					</div>
 					<?php endif; ?>
 				</div>

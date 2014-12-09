@@ -14,18 +14,10 @@
 			</div>	
 		</div>
 		
-		<div class="row flex flex-row flex-j-between">
-			<div class="promotion-box flex flex-j-space">
-				<!--<?php echo types_render_field('promotion_icon', ['output' => 'html']); ?>-->
-
-				<?php echo types_render_field('promotion_box', ['output' => 'html']); ?>
-			</div>
-			<div class="promotion-box flex flex-j-space">
-				<!--<?php echo types_render_field('promotion_icon', ['output' => 'html']); ?>-->
-
-				<?php echo types_render_field('promotion_box', ['output' => 'html']); ?>
-			</div>
+		<div class="promotion-box">
+			<?php echo types_render_field('promotion_box', ['output' => 'html']); ?>
 		</div>
+	
 	</div>
 	<?php get_footer(); ?>
 		
