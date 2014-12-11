@@ -411,6 +411,13 @@ a:hover{
 	}
 }
 
+li.current-menu-item a{
+
+	border-bottom: 2px solid $pink;
+
+
+}
+
 .login-menu{
 	display: flex;
 	justify-content: space-around;
@@ -452,6 +459,10 @@ a:hover{
 
 	@media screen and (max-width: 600px){
 		display: none;
+	}
+
+	input[type="name"]{
+		placeholder: "test";
 	}
 }
 
@@ -864,7 +875,11 @@ h2{
 
 See separate stylesheet: 'easy-responsive-tabs.css'
 
-//
+//*/
+
+.resp-tabs-container{
+	margin-bottom: 50px;
+}
 
 
 /*------------------------------------ Booking Form -----------------------------*/
@@ -923,78 +938,6 @@ See separate stylesheet: 'easy-responsive-tabs.css'
 }
 
 /*------------------------------------ Register Form -----------------------------*/
-
-/*div#register-form {
-    width: 400px; 
-    overflow: hidden; 
-    height: 270px; 
-    position: relative; 
-    background: #f9f9f9; //url(images/secure.png) no-repeat 260px 40px; 
-    font-family: Helvetica Neue, Helvetica, Arial !important;
-}
-
-div#register-form input[type="text"] {
-    display: block;
-    border: 1px solid #ccc;
-    margin: 5px 20px;
-    padding: 9px 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius:4px;
-    width: 200px;
-    font-family: Helvetica Neue, Helvetica, Arial !important;
-    color: $background-color; 
-}
- 
-div#register-form input[type="text"]:hover {
-    border-color: #b1b1b1;
-
-}
- 
-div#register-form input[type="text"]:focus {
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-}
-
-div#register-form input[type="submit"]#register {
-    background: url(images/register.jpg) no-repeat;
-    border: 0;
-    clear: both;
-    cursor: pointer;
-    height: 31px;
-    overflow: hidden;
-    position: relative;
-    left:295px;
-    text-indent: -9999px;
-    top:42px;
-    width:92px;
-}
-div#register-form input[type="submit"]#register:hover {
-    background-position: 0 -32px;
-}
-
-#register-form span {
-    display: block;
-    margin-bottom: 22px;
-    color: $gold;
-}
- 
-#register-form .title {margin-left:15px}
-#register-form .title h1,
-#register-form .title h1 {
-    margin:7px 0;
-    color: $gold;
-}
- 
-p.statement {
-    position:absolute;
-    bottom:-2px;
-    left:10px;
-    font-size:.9em;
-    color: $gold;
-}*/
-
-
-/*--------- Version 2 -----------*/
 
 .register-pic{
 	background:
@@ -1127,6 +1070,16 @@ p.statement {
 
 }
 
+.hours{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	letter-spacing: 2px;
+	line-height: 2;
+	color: white;
+}
+
 
 /*------------------------------------ Page display Services -----------------------------*/
 
@@ -1166,7 +1119,26 @@ p.statement {
 		font-weight: bold;
 		font-size: 1.1em;
 	}
+
 }
+
+
+.book-link{
+
+	a{
+		color: $background-color;
+		font-size: 1.5em;
+		background-color: $pink;
+		padding: 0 5px 0 5px;
+		border-radius: 5px;
+	}
+	
+}
+
+
+
+	
+
 
 #back-arrow{
 	color: $grey;
@@ -1251,10 +1223,18 @@ input[type="submit"]{
 /*------------------------------------ Footer -----------------------------*/
 footer{
 	background-color: white;
-	padding-bottom: 20px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	
 
 	.mobile{
-		display: none;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0px; 
+
+		@media screen and (min-width: 600px){
+			display: none;
+		}
 
 		.footer-pic{
 
@@ -1301,10 +1281,9 @@ footer{
 			visibility: show;
 			display: flex;
 			flex-direction: row;
-			height: 320px;
-			padding-bottom: 20px;
+			height: 350px;
 			
-
+			
 			.left-box,
 			.right-box{
 				width: 45%;
@@ -1336,6 +1315,41 @@ footer{
 			}
 		}
 
+		.phone{
+			color: $grey;
+			font-size: 3em;
+
+			span{
+				margin-top: 10px;
+				padding-top: 20px;
+				padding-right: 5px;
+			}
+		}
+
+	}
+
+	.copy{
+
+		span{
+			color: $pink;
+			font-size: 1.3em;
+	
+			@media screen and (max-width: 600px){
+				display: none;		
+			}
+		}
+
+		p{
+			padding: 0px;
+			margin: 0px;
+			color: $grey;
+	
+			@media screen and (min-width: 600px){
+				padding-left: 5px;
+				padding-right: 5px;
+
+			}
+		}
 	}
 
 	// Newsletter sign up
@@ -1348,10 +1362,40 @@ footer{
 
 		h2{
 			color: $grey;
-			font-size: 2em;
+			font-size: 1.5em;
 		} 
 	}
-}	
+
+	.mc-field-group{
+
+		label{
+			font-size: 12px;
+		}
+
+		input[type="email"]{
+			border: 1px solid $light-grey;
+			border-radius: 2px;
+			//background-color: $light-grey;
+		}
+	}
+
+	#mc_embed_signup{
+
+		input{
+			border: 1px solid $light-grey;
+		}
+	}
+
+	.response #mc_success_response{
+		color: blue;
+	}
+}
+
+.userdetails{
+	padding-top: 50px;
+	position: absolute;
+	margin-left: 600px;
+}
 
 
 /*----------------------------------- Flexbox ---------------------------------------*/

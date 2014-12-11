@@ -34,6 +34,15 @@ if(!is_admin()){
 		true
 	);
 
+	# MailChimp newletter sign up
+	wp_register_script('mailChimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js',
+		false,
+		false,
+		true
+	);
+
+	wp_enqueue_script('mailChimp');
+
 	# FancyBox JS
 	wp_register_script('mousewheel', $dir.'/includes/fancybox/lib/jquery.mousewheel-3.0.6.pack.js', ['jquery'], false, true);
 
@@ -58,16 +67,14 @@ if(!is_admin()){
 	);
 
 	wp_enqueue_script('tabs');
-
-	# MailChimp newletter sign up
-	wp_register_script('mailChimp', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js',
-		false,
-		false,
-		true
-	);
-
-	wp_enqueue_script('mailChimp');
 	
+
+	# Slider Script
+	//wp_register_script('jssor', $dir.'/js/jssor.js', ['jquery'], false, true);
+
+	//wp_register_script('slider-script', $dir.'/js/jssor.slider.js', ['jquery', 'jssor'], false, true);
+
+	//wp_enqueue_script('slider-script');
 
 	# Theme script
 	wp_register_script('theme', $dir.'/js/script.js',
@@ -81,7 +88,10 @@ if(!is_admin()){
 	# Bootstrap
 	wp_enqueue_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css');
 
-	#
+	# Bootstrap Slider theme
+	wp_enqueue_style('slider-theme', $dir.'/css/full-slider.css');
+
+	# Mail chimp
 	wp_enqueue_style('mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-081711.css');
 
 	# Tabs styles
@@ -235,7 +245,7 @@ if(!is_admin()){
 	<?php }
 	add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
-		function my_login_logo_url() {
+	function my_login_logo_url() {
 	    return home_url();
 	}
 	add_filter( 'login_headerurl', 'my_login_logo_url' );
@@ -244,6 +254,46 @@ if(!is_admin()){
 	    return 'Beauty Boutique';
 	}
 	add_filter( 'login_headertitle', 'my_login_logo_url_title' );
-}
 
+	
+	# https://wordpress.org/support/topic/can-you-stop-wp_login_form-redirecting-to-wp-login-on-fail
+	add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
+
+	function my_front_end_login_fail( $username ) {
+		$referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+		// if there's a valid referrer, and it's not the default log-in screen
+		if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+			if(!strstr($referrer, '?login=failed')){
+				wp_redirect( $referrer . '?login=failed' );
+			}else{
+				wp_redirect( $referrer );  // let's append some information (login=failed) to the URL for the theme to use
+			}
+			
+			exit;
+		}
+	}
+
+
+	# http://wordpress.stackexchange.com/questions/28786/action-wp-login-failed-not-working-if-only-one-field-is-filled-out
+	add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+	function custom_authenticate_username_password( $user, $username, $password ){
+		if ( is_a($user, 'WP_User') ) { return $user; }
+
+		if ( empty($username) || empty($password) ){
+			$error = new WP_Error();
+			$user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+
+			return $error;
+		}
+	}
+
+}else{
+
+	/* 
+	if(user is not full admin){
+		header('location: /my-account');
+		exit;
+	}
+	*/
+}
 

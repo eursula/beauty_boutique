@@ -493,6 +493,9 @@ a:hover {
   #usermenu a.logout {
     position: relative; }
 
+li.current-menu-item a {
+  border-bottom: 2px solid #f1a9a0; }
+
 .login-menu {
   display: -webkit-box;
   display: -webkit-flex;
@@ -516,6 +519,8 @@ a:hover {
   @media screen and (max-width: 600px) {
     .login-menu {
       display: none; } }
+  .login-menu input[type="name"] {
+    placeholder: "test"; }
 
 #sidemenu {
   position: absolute;
@@ -859,8 +864,9 @@ h2 {
 
 See separate stylesheet: 'easy-responsive-tabs.css'
 
-//
-
+//*/
+.resp-tabs-container {
+  margin-bottom: 50px; }
 
 /*------------------------------------ Booking Form -----------------------------*/
 #booking-form {
@@ -903,75 +909,6 @@ See separate stylesheet: 'easy-responsive-tabs.css'
   color: #ddd; }
 
 /*------------------------------------ Register Form -----------------------------*/
-/*div#register-form {
-    width: 400px; 
-    overflow: hidden; 
-    height: 270px; 
-    position: relative; 
-    background: #f9f9f9; //url(images/secure.png) no-repeat 260px 40px; 
-    font-family: Helvetica Neue, Helvetica, Arial !important;
-}
-
-div#register-form input[type="text"] {
-    display: block;
-    border: 1px solid #ccc;
-    margin: 5px 20px;
-    padding: 9px 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius:4px;
-    width: 200px;
-    font-family: Helvetica Neue, Helvetica, Arial !important;
-    color: $background-color; 
-}
- 
-div#register-form input[type="text"]:hover {
-    border-color: #b1b1b1;
-
-}
- 
-div#register-form input[type="text"]:focus {
-    -moz-box-shadow: 0 0 3px #ccc;
-    -webkit-box-shadow: 0 0 3px #ccc;
-}
-
-div#register-form input[type="submit"]#register {
-    background: url(images/register.jpg) no-repeat;
-    border: 0;
-    clear: both;
-    cursor: pointer;
-    height: 31px;
-    overflow: hidden;
-    position: relative;
-    left:295px;
-    text-indent: -9999px;
-    top:42px;
-    width:92px;
-}
-div#register-form input[type="submit"]#register:hover {
-    background-position: 0 -32px;
-}
-
-#register-form span {
-    display: block;
-    margin-bottom: 22px;
-    color: $gold;
-}
- 
-#register-form .title {margin-left:15px}
-#register-form .title h1,
-#register-form .title h1 {
-    margin:7px 0;
-    color: $gold;
-}
- 
-p.statement {
-    position:absolute;
-    bottom:-2px;
-    left:10px;
-    font-size:.9em;
-    color: $gold;
-}*/
-/*--------- Version 2 -----------*/
 .register-pic {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 15, 22, 0.5)), to(rgba(0, 15, 22, 0.5))), url("img/stone-spa.jpg");
   background: -webkit-linear-gradient(rgba(0, 15, 22, 0.5), rgba(0, 15, 22, 0.5)), url("img/stone-spa.jpg");
@@ -1056,6 +993,25 @@ p.statement {
 .div.wpcf7-mail-sent-ok {
   border: 1px dotted #f1a9a0; }
 
+.hours {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 2px;
+  line-height: 2;
+  color: white; }
+
 /*------------------------------------ Page display Services -----------------------------*/
 .services-content {
   background-color: white;
@@ -1079,6 +1035,13 @@ p.statement {
   .services-content h3 {
     font-weight: bold;
     font-size: 1.1em; }
+
+.book-link a {
+  color: #000f16;
+  font-size: 1.5em;
+  background-color: #f1a9a0;
+  padding: 0 5px 0 5px;
+  border-radius: 5px; }
 
 #back-arrow {
   color: #abb7b7;
@@ -1148,9 +1111,21 @@ input[type="submit"] {
 /*------------------------------------ Footer -----------------------------*/
 footer {
   background-color: white;
-  padding-bottom: 20px; }
+  margin-bottom: 0px;
+  margin-top: 0px; }
   footer .mobile {
-    display: none; }
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 0px; }
+    @media screen and (min-width: 600px) {
+      footer .mobile {
+        display: none; } }
     @media screen and (max-width: 600px) {
       footer .mobile .footer-pic {
         background-image: url("img/logo-gold.png");
@@ -1203,8 +1178,7 @@ footer {
         -webkit-flex-direction: row;
         -ms-flex-direction: row;
         flex-direction: row;
-        height: 320px;
-        padding-bottom: 20px; }
+        height: 350px; }
         footer .desktop .left-box,
         footer .desktop .right-box {
           width: 45%; } }
@@ -1220,6 +1194,27 @@ footer {
         color: #abb7b7; }
       footer .desktop .social-icons a:hover {
         color: #f1a9a0; }
+    footer .desktop .phone {
+      color: #abb7b7;
+      font-size: 3em; }
+      footer .desktop .phone span {
+        margin-top: 10px;
+        padding-top: 20px;
+        padding-right: 5px; }
+  footer .copy span {
+    color: #f1a9a0;
+    font-size: 1.3em; }
+    @media screen and (max-width: 600px) {
+      footer .copy span {
+        display: none; } }
+  footer .copy p {
+    padding: 0px;
+    margin: 0px;
+    color: #abb7b7; }
+    @media screen and (min-width: 600px) {
+      footer .copy p {
+        padding-left: 5px;
+        padding-right: 5px; } }
   footer #mc_embed_signup {
     background: #fff;
     clear: left;
@@ -1227,7 +1222,21 @@ footer {
     color: black; }
     footer #mc_embed_signup h2 {
       color: #abb7b7;
-      font-size: 2em; }
+      font-size: 1.5em; }
+  footer .mc-field-group label {
+    font-size: 12px; }
+  footer .mc-field-group input[type="email"] {
+    border: 1px solid #d2d7d3;
+    border-radius: 2px; }
+  footer #mc_embed_signup input {
+    border: 1px solid #d2d7d3; }
+  footer .response #mc_success_response {
+    color: blue; }
+
+.userdetails {
+  padding-top: 50px;
+  position: absolute;
+  margin-left: 600px; }
 
 /*----------------------------------- Flexbox ---------------------------------------*/
 .flex {
