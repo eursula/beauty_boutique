@@ -8,7 +8,7 @@
 				<p>Username: test</p>
 				<p>Password: test123</p>
 			</div>-->
-			<div class="container login-form flex flex-column flex-j-center ">
+			<div class="container login-form flex flex-column">
 				<?php if($_GET['login'] == 'failed'): ?>
 					<p class="login-error">Username or Password incorrect</p>
 				<?php endif; ?>
